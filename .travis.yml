@@ -10,3 +10,11 @@ before_install:
 
 script:
  - bundle exec rspec
+ 
+deploy:
+ provider: heroku
+ api_key: ebe70ee4-af6a-430c-8f8e-15019bba6838
+ app: vast-basin-93110
+ run: "rake db:migrate"
+ on:
+  all_branches: true
