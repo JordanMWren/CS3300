@@ -40,6 +40,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bootstrap', '~> 5.0.0.beta2'
 gem 'mini_racer'
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -48,7 +49,6 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '~> 3.7'
   gem 'capybara'
-  gem 'devise'
 end
 
 group :development do
