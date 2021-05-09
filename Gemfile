@@ -38,9 +38,12 @@ end
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'bootstrap', '~> 5.0.0.beta2'
+gem 'bootstrap', '~> 4.6.0'
+gem 'jquery-rails'
 gem 'mini_racer'
 gem 'devise'
+gem 'carrierwave'
+gem 'bootstrap-sass' 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

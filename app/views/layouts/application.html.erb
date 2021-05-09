@@ -1,15 +1,57 @@
 <!DOCTYPE html>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand">CS Portfolio</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    
+    <ul class="nav pull-right">   
+      <li>
+      <div id="user_nav">
+        <% if user_signed_in? %>
+          <a class="navbar-text px-3">Signed in as <%= current_user.email %></a>
+          <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'btn btn-danger btn-mini' %>
+        <% else %>
+          <%= link_to new_user_registration_path do %>
+          <button class="btn-mini btn btn-secondary">Sign up</button>
+        <% end %>
+        <%= link_to new_user_session_path do %>
+          <button class="btn-primary btn">Sign in</button>
+        <% end %>
+        <% end %>
+      </div>
+    </li> 
+  </ul>
+  </div>
+</nav>
+
 <html>
   <head>
-    <title>CS3300 Portfolio</title>
+    <title>Wren Portfolio Website</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
   <body>
     <%= yield %>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="/jquery-3.2.1.min.js"></script>
   </body>
+  
 </html>

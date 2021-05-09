@@ -1,31 +1,58 @@
-<p id="notice"><%= notice %></p>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
-<h1>Projects</h1>
 
-<table>
+<main role="main">
+  <div class="jumbotron">
+  <img src="https://cdn.discordapp.com/avatars/739925317787058219/445d05832106d99db0759eaf3bee202f.png?size=256" class="img-fluid rounded-circle float-left"></img>
+    <div class="container">
+      <h1 class="display-3">Welcome to my portfolio!</h1>
+      <p>
+        Hey there, my name is Jordan Wren! I'm currently in my third year as a Computer Science student at 
+        UCCS, expecting to graduate Spring of 2022. I've been a coding hobbyist since 2014, and hope to make it
+        my career path. When I'm not coding I'm usually playing Black Ops or watching hockey (Go Avs!). Enjoy having
+        a look around my portfolio.
+      </p>
+    </div>
+  </div>
+</main>
+<div class="notice"><%= notice %></div>
+
+<div class= "container body-container" style="padding:0!important">
+<table class ="table table-bordered table-responsive">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Last Updated</th>
-      <th colspan="3"></th>
+      <th style="width: 10%">Name</th>
+      <th style="width: auto">Project Description</th>
+      <th style="width: 6.5%">Updated</th>
+      <% if user_signed_in? %>
+      <th style="width: 14%">Actions</th>
+      <% end %>
     </tr>
   </thead>
 
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= project.title %></td>
+        <td><%= link_to project.title, project %></td>
         <td><%= project.description %></td>
-        <td><%= project.updated_at %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= project.updated_at.strftime('%F') %></td>
+        
+        <% if user_signed_in? %>
+        <td>
+        <%= link_to edit_project_path(project) do %>
+          <button type="button" class="btn btn-primary"><i class="far fa-edit"></i></button>
+        <% end %>
+        <%= link_to project, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <button type="button" class="btn btn-danger">Destroy</button>
+        <% end %>
+        </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Project', new_project_path %>
+<%= link_to new_project_path do %>
+<button class="btn-primary btn">New Project</button>
+<% end %>
+</div>

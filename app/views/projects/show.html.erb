@@ -1,14 +1,35 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+<div class="container">
+  <h5 class="title">
+    <strong>../<%= @project.title %></strong>
+  </h5>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+  <table class ="table table-bordered table-striped">
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+  <tbody>
+    <tr class="blank_row">
+    <td bgcolor="#FFFFFF"><i class="fas fa-folder"></i>  folder1 <div style="float: right">Updated x months ago</div></td>
+    </tr>
+    <tr class="blank_row">
+    <td bgcolor="#FFFFFF"><i class="fas fa-folder"></i>  folder2 <div style="float: right">Updated x months ago</div></td>
+    </tr>
+    <tr class="blank_row">
+    <td bgcolor="#FFFFFF"><i class="fas fa-file"></i>  file1.extension <div style="float: right">Updated x months ago</div></td>
+    </tr>
+    <tr class="blank_row">
+    <td bgcolor="#FFFFFF"><i class="fas fa-file"></i>  file2.extension <div style="float: right">Updated x months ago</div></td>
+    </tr>
+    <tr class="blank_row">
+    <td bgcolor="#FFFFFF"><i class="fas fa-file"></i>  file3.extension <div style="float: right">Updated x months ago</div></td>
+    </tr>
+    <tr class="blank_row">
+    <td bgcolor="#FFFFFF"><i class="fas fa-file"></i>  file4.extension <div style="float: right">Updated x months ago</div></td>
+    </tr>
+    <tr class="blank_row">
+    <td bgcolor="#FFFFFF"><i class="fas fa-file"></i>  file5.extension <div style="float: right">Updated x months ago</div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
